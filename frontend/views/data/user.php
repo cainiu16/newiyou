@@ -4,7 +4,7 @@ use yii\helpers\Html;
 ?>
 <body>
 <?php
-    require('/file/left.php');
+    require('file/left.php');
 ?>
     <!-- /.u-menu -->
     <div class="u-main">
