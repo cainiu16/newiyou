@@ -21,7 +21,7 @@
 						</div>	
 						<div class="comments">
 								<ul>
-									<li><span class="bookmark"> </span><a href="#" title="作者"><?= $val['u_name'] ?></a></li>
+									<li><span class="bookmark"> </span><a href="index.php?r=data/user" title="作者"><?= $val['u_name'] ?></a></li>
 									<li><span class="clndr"> </span><a href="#"  title="添加时间"><?= $val['t_times'] ?></a></li>
 								</ul>
 								<div class="b-btn">

@@ -14,8 +14,8 @@
 						<div class="comments cmt">
 								<ul>
 									<li><span class="bookmark"> </span><a href="#">回复(10)</a></li>
-									<li><span class="clndr"> </span><p><?= $list_arr['t_times']?></p></li>
-									<li><span class="cmnt"> </span><a href="#" title="最后回复人"><?= $list_arr['u_name']?></a></li>
+									<li><span class="clndr"> </span><p title="品论时间"><?= $list_arr['t_times']?></p></li>
+									<li><span class="cmnt"> </span><a href="index.php?r=data/user" title="最后回复人"><?= $list_arr['u_name']?></a></li>
 								</ul>
 						</div>	
 					</div>	
@@ -25,7 +25,7 @@
 					<div class="comments cmt">
 					<table>
 					<tr>
-						<font color="red">用户头像</font><td><img src="<?= $val['m_img']?>" alt="" width="200" height="200" /></td>
+						<font color="red">用户头像</font><td><img src="<?= $val['m_img']?>" alt="用户头像" width="200" height="200" onerror="this.src='images/025632646.jpg'" /></td>
 						<td>
 							<tr>
 								<td>评论内容 </td><td title="评论内容："><?= $val['re_content']?></td><br />
@@ -45,6 +45,7 @@
 								<form method="post" action="index.php?r=travel/reply">
 									<textarea placeholder="Message" name="content"></textarea>
 									<input type="hidden" value="<?= $list_arr['t_id']?>" name="t_id" />
+									<input type="hidden" value="<?= $list_arr['u_id']?>" name="u_id" />
 									<input type="submit" value="评论"/>
 				   				</form>
 				   			</div>	
