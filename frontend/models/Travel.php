@@ -100,7 +100,16 @@ class Travel extends \yii\db\ActiveRecord
         {
             $season = 4;
         }
-            $sql = $this->find()
+		$info = $this->find()
+            ->innerJoin('city',"travel.c_id = city.c_id")
+            ->innerJoin('season',"travel.s_id = season.s_id")
+            ->where(['travel.s_id'=>$season])
+           ->orderBy(['click_num'=>SORT_DESC])
+		   ->select('*')
+		   ->limit(3)
+		   ->all();
+		   
+        /*     $sql = $this->find()
             ->innerJoin('city',"travel.c_id = city.c_id")
             ->innerJoin('season',"travel.s_id = season.s_id")
             ->where(['travel.s_id'=>$season])
@@ -113,11 +122,11 @@ class Travel extends \yii\db\ActiveRecord
             'defaultPageSize'=>3,
         ]);
         $info = Yii::$app->db->createCommand("select * from travel as tr join city on tr.c_id = city.c_id join season as sea on sea.s_id=tr.s_id where tr.s_id = '$season' limit ".$pages->offset.",".$pages->limit)->queryAll();
-
+ */
        /* $info = $sql2->offset($pages->offset)
             ->limit($pages->limit)
             ->all();*/
-        return ['page'=>$pages,'info'=>$info];
+        return ['info'=>$info];
     }
     /**
      * 最热的城市

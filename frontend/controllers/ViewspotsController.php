@@ -26,10 +26,9 @@ class ViewspotsController extends Controller
         $model = new Travel();
         //轮播图（点击量最高前六张）
         $pots = $model->searchsix();
-        //最好的时节
+        //最好的时节(这个季节点击量最高的前三景点)
         $season = $model->seasons();
-        $page = $season['page'];
-        $info = $season['info'];
+		$info = $season['info'];
         //最热的城市
         $citys = $model->hotcity();
         $fourcity = $citys[0];
@@ -37,7 +36,7 @@ class ViewspotsController extends Controller
         $allviews = $model->allview();
         $pages = $allviews['page'];
         $allinfo = $allviews['info'];
-        return $this->render('magazine',['spots'=>$pots,'season'=>$info,'page'=>$page,'city'=>$fourcity,'pagess'=>$pages,'allinfo'=>$allinfo]);
+        return $this->render('magazine',['spots'=>$pots,'season'=>$info,'city'=>$fourcity,'pagess'=>$pages,'allinfo'=>$allinfo]);
     }
     /**
      *景点详情页
