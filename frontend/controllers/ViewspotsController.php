@@ -33,7 +33,11 @@ class ViewspotsController extends Controller
         //最热的城市
         $citys = $model->hotcity();
         $fourcity = $citys[0];
-        return $this->render('magazine',['spots'=>$pots,'season'=>$info,'page'=>$page,'city'=>$fourcity]);
+		//景点列表
+        $allviews = $model->allview();
+        $pages = $allviews['page'];
+        $allinfo = $allviews['info'];
+        return $this->render('magazine',['spots'=>$pots,'season'=>$info,'page'=>$page,'city'=>$fourcity,'pagess'=>$pages,'allinfo'=>$allinfo]);
     }
     /**
      *景点详情页

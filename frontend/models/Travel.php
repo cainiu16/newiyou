@@ -189,7 +189,15 @@ class Travel extends \yii\db\ActiveRecord
      */
     public function allview()
     {
-        return $this->find();
-
+        $sql = $this->find();
+        $quer = clone $sql;
+        $pages = new Pagination([
+            'totalCount'=>$quer->count(),
+            'defaultPageSize'=>8,
+        ]);
+        $info = $sql->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+        return ['page'=>$pages,'info'=>$info];
     }
 }

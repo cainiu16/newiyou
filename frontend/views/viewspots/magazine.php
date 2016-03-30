@@ -98,7 +98,24 @@ navButtonsOpacity: 1
 
 </div>
 <!--magazine-->
-<div>1213123132132132132</div>
+<?php foreach($allinfo as $k=>$v) {?>
+	<div class="col-md-3 building-left">
+		<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']; ?>"><img title="<?php echo $v['t_name']; ?>" src="http://<?php echo $v['t_p_img']; ?>" alt="" /></a>
+		<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']; ?>"><h4>   <?php echo $v['t_name']; ?></h4></a>
+		<p><?php echo mb_strlen($v['t_content'], 'utf-8') > 50  ? mb_substr($v['t_content'], 0, 30 , 'utf-8').'....' : $v['t_content']; ?></p>
+		<div class="build-btn">
+			<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']; ?>" class="hvr-shutter-out-horizontal">了解我</a>
+		</div>
+	</div>
+<?php }?>
+<div class="clearfix"></div>
+<center>
+	<?php echo LinkPager::widget([
+			'pagination' => $pagess,
+	]);?>
+</center>
+
+<div class="clearfix"></div>
 <!--Slider-Starts-Here-->
 <script src="js/responsiveslides.min.js"></script>
 <script>
