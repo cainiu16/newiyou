@@ -11,7 +11,7 @@ $session->open();
 <script src="js/UserJS.js" type="text/javascript"></script>
     <body>
 <?php
-require('/file/left.php');
+require('./file/left.php');
 ?>
 <link type="text/css" rel="stylesheet" href="css/tgv3_index.css">
 <div class="u-main">

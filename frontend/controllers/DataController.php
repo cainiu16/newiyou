@@ -18,7 +18,6 @@ class DataController extends Controller
 
 	public function actionIndex()
 	{
-       header("content-type:text/html;charset=utf-8");
 		$this->layout="header";
         //查询首页轮播信息
 		$sql="select * from imgs order by addtime desc limit 8";
