@@ -3,7 +3,7 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-require('/file/left.php');
+require('file/left.php');
 ?>
 <div class="u-main">
     <div class="ucenter">
