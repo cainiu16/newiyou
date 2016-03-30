@@ -19,7 +19,7 @@ use app\models\Extension;
 use app\models\GoodsLog;
 class UserController extends Controller
 {
-    public $layout='heade';
+    public $layout='header';
     //显示修改页面
 	public function actionIndex()
 	{
