@@ -1,10 +1,12 @@
 <?php
+/**
+  *游记模块
+  *金跃虎
+  *
+  */
 namespace frontend\controllers;
 use Yii;
 use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -14,33 +16,36 @@ use yii\filters\AccessControl;
 use yii\base\Model;
 use app\models\Travels;
 use yii\web\UploadedFile;
+/**
+  *发表帖子模块
+  *金跃虎
+  */
 class TravelController extends Controller
 {
-	//显示帖子页面
+	/**
+	 *显示帖子页面
+	 *
+	 */
 	public function actionTravel()
 	{
 		$this->layout="header";
 		$model = new Travels;
 		$connection = \Yii::$app->db;
-		//查询与用户相对应的帖子
 		$command = $connection->createCommand('SELECT * FROM travels inner join user on travels.u_id = user.u_id order by t_id desc limit 7');
 		$post_arr = $command->queryAll();
 		return $this->render('blog',['post_arr'=>$post_arr,'model'=>$model]);
 	}
 	/**
-		上传景点帖子
+	 *	上传景点帖子
 	*/
     public function actionUpload()
     {	
-		//开启session
 		$session = Yii::$app->session;	
         $session->open();
-		//判断用户是否登录 如果没登录跳到登录页
 		if(isset($_SESSION['u_id'])){
 		$title = $_POST['title'];
 		$content = $_POST['content'];
 		$session = $_SESSION['u_id'];
-		//修改时区为北京时间
 		date_default_timezone_set('PRC');
 		$date = date('Y-m-d h:m:s ',time());
         $model = new Travels();
@@ -60,20 +65,18 @@ class TravelController extends Controller
 			echo "<script>alert('请先登录');location.href='index.php?r=login/login'</script>";
 		}
     }
-	//帖子详情
+	/** 
+	 *帖子详情
+	 */
 	public function actionSingle()
 	{
 		$this->layout="header";
 		$id = $_GET['id'];
 		$connection = \Yii::$app->db;
-		//查询帖子详情
 		$command = $connection->createCommand("SELECT * FROM travels inner join user on travels.u_id = user.u_id where t_id = '$id'");
 		$post_arr = $command->queryOne();
-		//print_r($post_arr);
-		//显示帖子回复内容
 		$command = $connection->createCommand("SELECT * FROM reply inner join user on reply.u_id = user.u_id join message on message.u_id = user.u_id where t_id = '$id' order by date desc limit 5");
 		$reply_arr = $command->queryAll();
-		//print_r($reply_arr);die;
 		return $this->render('single.php',['list_arr'=>$post_arr,'reply_arr'=>$reply_arr]);
 
 	}
@@ -87,7 +90,6 @@ class TravelController extends Controller
 		$content = $_POST['content'];
 		$t_id = $_POST['t_id'];
 		$session = $_SESSION['u_id'];
-		//修改时区为北京时间
 		date_default_timezone_set('PRC');
 		$date = date('Y-m-d h:m:s ',time());
 		$u_id = $_POST['u_id'];
@@ -100,21 +102,14 @@ class TravelController extends Controller
 		'u_id' => $u_id,
 		])->execute();
 		$connection = \Yii::$app->db;
-		//查询帖子详情
 		$command = $connection->createCommand("SELECT * FROM travels inner join user on travels.u_id = user.u_id where t_id = '$t_id'");
 		$post_arr = $command->queryOne();
-		//显示帖子回复内容
 		$command = $connection->createCommand("SELECT * FROM reply inner join user on reply.u_id = user.u_id join message on message.u_id = user.u_id where t_id = '$t_id' order by date desc limit 5");
 		$reply_arr = $command->queryAll();
 		return $this->render('reply.php',['list_arr'=>$post_arr,'reply_arr'=>$reply_arr]);
 		} else {
 			echo "<script>alert('请先登录');location.href='index.php?r=login/login'</script>";
 		}
-		//history.go(0);
-		//print_r($re);
-		
-		//echo "<script>alert('评论成功');location.href='index.php?r=travel/single & id = $t_id'</script>";
-		//echo "<a href='index.php?r=travel/single?id=$t_id'>评论成功</a>";
 		
 	}
 }
