@@ -5,11 +5,8 @@ use yii\widgets\LinkPager;
 	.sea{
 		margin-top: 50px; margin-left: 500px;
 	}
-		.image{
-      margin-top:50px;
-	}
 </style>
-<input id="city" class="sea" placeholder="请输入您要搜索的城市" value="<?php echo $citys; ?>" style="height:36px;width:260px" type="text"><img onclick="searchs()" src="http://www.imgss.com/search.png" alt="" class="image">
+<input id="city" class="sea" placeholder="请输入您要搜索的城市" value="<?php echo $citys; ?>" style="height:36px;width:260px" type="text"><img onclick="searchs()" src="http://www.imgss.com/search.png" alt="">
 <script src="js/jquery.js"></script>
 <script type="text/javascript">
 	function searchs(){
