@@ -1,4 +1,8 @@
- 
+<script type="text/javascript" charset="utf-8" src="js/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="js/lang/zh-cn/zh-cn.js"></script>
 	<div class="blog">
 		<div class="container">
 			<div class="blog-top">
@@ -8,7 +12,7 @@
 					</div>								
 					<div class="blog-main-one">
 						<div class="blog-one blog-sng">
-							<img src="<?php echo img_path;?><?= $list_arr['t_img']?>" alt="" width="200" height="500" />
+							<img src="<?= $list_arr['t_img']?>" alt="" width="200" height="500" />
 							<p class="sngl"><?= $list_arr['t_content']?></p>
 						</div>	
 						<div class="comments cmt">
@@ -25,7 +29,7 @@
 					<div class="comments cmt">
 					<table>
 					<tr>
-						<font color="red">用户头像</font><td><img src="<?php echo img_path;?><?= $val['m_img']?>" alt="用户头像" width="200" height="200" onerror="this.src='images/025632646.jpg'" /></td>
+						<font color="red">用户头像</font><td><img src="<?= $val['m_img']?>" alt="用户头像" width="200" height="200" onerror="this.src='images/025632646.jpg'" /></td>
 						<td>
 							<tr>
 								<td>评论内容 </td><td title="评论内容："><?= $val['re_content']?></td><br />
@@ -43,7 +47,7 @@
 					 		<h3>评论</h3>
 					 		<div class="contact-form">
 								<form method="post" action="index.php?r=travel/reply">
-									<textarea placeholder="Message" name="content"></textarea>
+									<script id="editor" type="text/plain" style="width:830px;height:200px;" name="content"></script>
 									<input type="hidden" value="<?= $list_arr['t_id']?>" name="t_id" />
 									<input type="hidden" value="<?= $list_arr['u_id']?>" name="u_id" />
 									<input type="submit" value="评论"/>
@@ -67,8 +71,10 @@
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		var ue = UE.getEditor('editor');
+	</script>
 	<!--blog-->
 	<!--read-->
 	@stop
-
-	
