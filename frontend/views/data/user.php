@@ -13,7 +13,7 @@ use yii\helpers\Html;
                 <div class="info">
                     <ul class="info-img">
                         <li>
-                            <img src="<?php if($data['m_img']==''){echo 'aa';}else{
+                            <img src="<?php echo img_path;?><?php if($data['m_img']==''){echo 'aa';}else{
                                 echo $data['m_img'];
                             }?>" class="avatar" onerror="javascript:this.src='images/error.jpg'"/></li></ul>
                     <div class="info-main">
@@ -73,7 +73,7 @@ use yii\helpers\Html;
                                     ?>
                                     <tr>
                                         <td class="list"><?= $v['p_name']?></td>
-                                        <td class="list"><img src="<?php if($v['p_img']==''){echo "aa";}else{echo $v['p_img'];}?>"  onerror="javascript:this.src='images/errors.jpg'" width='60%'/></td>
+                                        <td class="list"><img src="<?php echo img_path;?><?php if($v['p_img']==''){echo "aa";}else{echo $v['p_img'];}?>"  onerror="javascript:this.src='images/errors.jpg'" width='60%'/></td>
                                         <td class="list"><?= $v['l_integral']?></td>
                                         <td class="list"><?= $v['l_num']?></td>
                                         <td class="list"><?= $v['l_time']?></td>

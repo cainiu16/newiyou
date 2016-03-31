@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Created by PhpStorm.
@@ -8,7 +9,8 @@
 ?>
 <body>
 <!--search-scripts-->
-<script src="js/classie.js"></script>
+<script 
+="js/classie.js"></script>
 <script src="js/uisearch.js"></script>
 <script>
     new UISearch( document.getElementById( 'sb-search' ) );
@@ -24,7 +26,7 @@
                 </div>
                 <div class="blog-main-one">
                     <div class="blog-one blog-sng">
-                        <img src="http://<?php echo $view['t_p_img']?>" alt="<?php echo $view['t_name']?>" width="800px" height="450px"/>
+                        <img src="<?php echo img_path;?><?php echo $view['t_p_img']?>" alt="<?php echo $view['t_name']?>" width="800px" height="450px"/>
                         <p class="sngl"><?php echo $view['t_content'];?></p>
                     </div>
                     <!--百度地图-->
@@ -67,7 +69,7 @@
                     <div class="related-bottom">
                         <?php foreach($hotels as $k=>$v) {?>
                             <a href="index.php?r=hotel/hot_about&id=<?php echo $v['g_id']?>"><div class="col-md-3 related-left">
-                                <img src="http://<?php echo $v['g_p_img']?>" alt="" />
+                                <img src="<?php echo img_path;?><?php echo $v['g_p_img']?>" alt="" />
                                 <h4><?php echo $v['g_name'];?></h4>
                             </div></a>
                         <?php }?>

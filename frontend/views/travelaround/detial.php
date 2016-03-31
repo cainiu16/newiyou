@@ -8,7 +8,7 @@
 				</div>								
 				<div class="blog-main-one">
 					<div class="blog-one blog-sng">
-						<img src="http://<?php echo $arr['t_p_img']; ?>" alt="" />
+						<img src="<?php echo img_path;?><?php echo $arr['t_p_img']; ?>" alt="" />
 						<p class="sngl"><?php echo $arr['t_content']; ?></p>
 					</div>	
 					<div class="comments cmt">
