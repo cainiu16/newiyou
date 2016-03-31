@@ -340,8 +340,8 @@ class AdminController extends Controller
 		$this->layout="header";
 		$model = new gropshop();
         $b = $model->g_p_img = UploadedFile::getInstance($model, 'g_p_img');
-            $arr=$model->g_p_img->saveAs('./../../images/'.$model->g_p_img->baseName . '.' . $model->g_p_img->extension);
-            $g_p_img = ''.$model->g_p_img->name;
+            $arr=$model->g_p_img->saveAs('images/'.$model->g_p_img->baseName . '.' . $model->g_p_img->extension);
+            $g_p_img = 'images/'.$model->g_p_img->name;
             $update = $model->doadd($g_p_img);
         if ($update) {
                 echo "<script>alert('成功');location.href='index.php?r=admin/jiudian';</script>";
@@ -461,8 +461,8 @@ class AdminController extends Controller
 		$id = $_POST['id'];
         $b = $model->i_img = UploadedFile::getInstance($model, 'i_img');
         if($b){
-            $arr=$model->i_img->saveAs('./../../images/'.$model->i_img->baseName . '.' . $model->i_img->extension);
-            $i_img = ''.$model->i_img->name;
+            $arr=$model->i_img->saveAs('images/'.$model->i_img->baseName . '.' . $model->i_img->extension);
+            $i_img = 'images/'.$model->i_img->name;
             $update = $model->upda($i_img);
         }else{
                 $i_img = "";
@@ -498,8 +498,8 @@ class AdminController extends Controller
 		$this->layout="header";
 		$model = new Imgs();
         $b = $model->i_img = UploadedFile::getInstance($model, 'i_img');
-            $arr=$model->i_img->saveAs('./../../images/'.$model->i_img->baseName . '.' . $model->i_img->extension);
-            $i_img = ''.$model->i_img->name;
+            $arr=$model->i_img->saveAs('images/'.$model->i_img->baseName . '.' . $model->i_img->extension);
+            $i_img = 'images/'.$model->i_img->name;
             $update = $model->doadd($i_img);
         if ($update) {
                 echo "<script>alert('成功');location.href='index.php?r=admin/lunbo';</script>";
