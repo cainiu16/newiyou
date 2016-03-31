@@ -6,7 +6,7 @@ use yii\widgets\LinkPager;
 		margin-top: 50px; margin-left: 500px;
 	}
 </style>
-<input id="city" class="sea" placeholder="请输入您要搜索的城市" value="<?php echo $citys; ?>" style="height:36px;width:260px" type="text"><img onclick="searchs()" src="http://www.imgss.com/search.png" alt="">
+<input id="city" class="sea" placeholder="请输入您要搜索的城市" value="<?php echo $citys; ?>" style="height:36px;width:260px" type="text"><img onclick="searchs()" src="http://www.imgss.com/search.png" alt="搜索">
 <script src="js/jquery.js"></script>
 <script type="text/javascript">
 	function searchs(){
