@@ -19,7 +19,7 @@ require('./file/left.php');
             <?php
                 if($model->m_img){
                     ?>
-                    <img src="<?= $model->m_img?>" width="40px" height="40px" onerror="javascript:this.src='images/error.jpg'"/>
+                    <img src="<?php echo img_path;?><?= $model->m_img?>" width="40px" height="40px" onerror="javascript:this.src='images/error.jpg'"/>
             <?php
                 }
             ?>

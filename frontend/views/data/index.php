@@ -47,7 +47,7 @@
 		   if($k==0){
 			?>
 		   <div class="item g1 popup-with-zoom-anim" href="#small-dialog">
-		<img class="lazyOwl" src="http://<?php echo $v['i_img'];?>" alt="name">
+		<img class="lazyOwl" src="<?php echo img_path;?><?php echo $v['i_img'];?>" alt="name">
 		<div class="caption">
 		<h3><?php echo $v['i_content'];?></h3>
 		<div class="s-btn">
@@ -57,7 +57,7 @@
 		</div> 
 		<?php } else {?>
 		<div class="item g1 popup-with-zoom-anim" href="#small-dialog<?php echo $k;?>">
-		<img class="lazyOwl" src="http://<?php echo $v['i_img'];?>" alt="name">
+		<img class="lazyOwl" src="<?php echo img_path;?><?php echo $v['i_img'];?>" alt="name">
 		<div class="caption">
 		<h3><?php echo $v['i_content'];?></h3>
 		<div class="s-btn">
@@ -83,7 +83,7 @@
 		<div class="caption-popup">
 		<div id="small-dialog" class="mfp-hide innercontent">
 		<h4><?php echo $v['i_content'];?></h4>
-		<img class="img-responsive cap" src="http://<?php echo $v['i_img'];?>" title="<?php echo $v['i_content'];?>" />
+		<img class="img-responsive cap" src="<?php echo img_path;?><?php echo $v['i_img'];?>" title="<?php echo $v['i_content'];?>" />
 		<p><?php echo $v['i_desc'];?></p>
 		<a class="morebtn" href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['i_s_id']?>">了解我</a>
 		</div>						  
@@ -92,7 +92,7 @@
 		<div class="caption-popup">
 		<div id="small-dialog<?php echo $k;?>" class="mfp-hide innercontent">
 		<h4><?php echo $v['i_content'];?></h4>
-		<img class="img-responsive cap" src="http://<?php echo $v['i_img'];?>" title="<?php echo $v['i_content'];?>" />
+		<img class="img-responsive cap" src="<?php echo img_path;?><?php echo $v['i_img'];?>" title="<?php echo $v['i_content'];?>" />
 		<p><?php echo $v['i_desc'];?></p>
 		<a class="morebtn" href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['i_s_id']?>">了解我</a>
 		</div>						  
@@ -187,8 +187,8 @@
 		   <?php foreach ($res as $k=>$v) {?>
 		   <li style="float:left;margin-left:20px;height:450px;">
 
-			<a href="http://<?php echo $v['g_p_img'];?>" class="b-link-stripe b-animate-go   swipebox"  title="<?php echo $v['g_name'];?>">
-			<img src="http://<?php echo $v['g_p_img'];?>" title="<?php echo $v['g_name'];?>" width="350" height="350"/>
+			<a href="<?php echo img_path;?><?php echo $v['g_p_img'];?>" class="b-link-stripe b-animate-go   swipebox"  title="<?php echo $v['g_name'];?>">
+			<img src="<?php echo img_path;?><?php echo $v['g_p_img'];?>" title="<?php echo $v['g_name'];?>" width="350" height="350"/>
 		    <div class="art-btm">
 			<a href="index.php?r=hotel/hot_about&id=<?php echo $v['g_id']?>"><h3><?php echo $v['g_name'];?></h3></a>
 			</div> 

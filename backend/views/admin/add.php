@@ -77,7 +77,7 @@ use yii\widgets\ActiveForm;
         <td>介绍</td>
         <td>
             <input type="text" id='js'>
-            <script id="editor" type="text/plain" style="width:1024px;height:500px;" name='i_desc'><?php echo $info['i_desc']?></script>
+            <script id="editor" type="text/plain" style="width:1024px;height:500px;" name='i_desc'></script>
         </td>
     </tr>
     <tr>

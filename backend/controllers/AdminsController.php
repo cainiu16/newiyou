@@ -87,8 +87,8 @@ class AdminsController extends Controller
 		$this->layout="header";
 		$model = new travel();
         $b = $model->t_p_img = UploadedFile::getInstance($model, 't_p_img');
-            $arr=$model->t_p_img->saveAs('./../../images/'.$model->t_p_img->baseName . '.' . $model->t_p_img->extension);
-            $t_p_img = ''.$model->t_p_img->name;
+            $arr=$model->t_p_img->saveAs('images/'.$model->t_p_img->baseName . '.' . $model->t_p_img->extension);
+            $t_p_img = 'images/'.$model->t_p_img->name;
             $update = $model->doadd($t_p_img);
         if ($update) {
                 echo "<script>alert('添加成功');location.href='index.php?r=admins/travel';</script>";
@@ -128,8 +128,8 @@ class AdminsController extends Controller
 		$id = $_POST['id'];
         $b = $model->t_p_img = UploadedFile::getInstance($model, 't_p_img');
         if($b){
-            $arr=$model->t_p_img->saveAs('./../../images/'.$model->t_p_img->baseName . '.' . $model->t_p_img->extension);
-            $t_p_img = ''.$model->t_p_img->name;
+            $arr=$model->t_p_img->saveAs('images/'.$model->t_p_img->baseName . '.' . $model->t_p_img->extension);
+            $t_p_img = 'images/'.$model->t_p_img->name;
             $update = $model->dosave($t_p_img);
         }else{
                 $t_p_img = "";

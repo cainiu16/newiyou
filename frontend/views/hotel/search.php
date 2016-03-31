@@ -18,7 +18,7 @@
 <p>￥  <font color="orange"><?php echo $value['g_money'] ?></font>  起价</p>
 <table>
 	<tr>
-		<td><img src="http://<?php echo $value['g_p_img'] ?>" alt="<?php echo $value['g_name'] ?>" title="<?php echo $value['g_name'] ?>" width="260px;"></td>
+		<td><img src="<?php echo img_path;?><?php echo $value['g_p_img'] ?>" alt="<?php echo $value['g_name'] ?>" title="<?php echo $value['g_name'] ?>" width="260px;"></td>
 		<td>
 			<p ><?php echo $value['g_desc'] ?></p>
 			<div class="sp-btn" style="height:20px; width:100px;">

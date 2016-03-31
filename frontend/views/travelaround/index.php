@@ -30,7 +30,7 @@ use yii\widgets\LinkPager;
 				<?php endif ?>
 			<?php foreach ($arr as $k => $v): ?>
 				<div class="col-md-3 building-left">
-					<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']; ?>"><img title="<?php echo $v['t_name']; ?>" src="http://<?php echo $v['t_p_img']; ?>" alt="" /></a>
+					<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']; ?>"><img title="<?php echo $v['t_name']; ?>" src="<?php echo img_path;?><?php echo $v['t_p_img']; ?>" alt="" /></a>
 					<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']; ?>"><h4>   <?php echo $v['t_name']; ?></h4></a>
 					<p><?php echo mb_strlen($v['t_content'], 'utf-8') > 50  ? mb_substr($v['t_content'], 0, 30 , 'utf-8').'....' : $v['t_content']; ?></p>
 					<div class="build-btn">
@@ -67,7 +67,7 @@ use yii\widgets\LinkPager;
 				</div>
 				<?php foreach ($e as $k => $v): ?>
 				<div class="col-md-3 building-left">
-					<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']; ?>"><img title="<?php echo $v['t_name']; ?>" src="http://<?php echo $v['t_p_img']; ?>" alt="" /></a>
+					<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']; ?>"><img title="<?php echo $v['t_name']; ?>" src="<?php echo img_path;?><?php echo $v['t_p_img']; ?>" alt="" /></a>
 					<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']; ?>"><h4>   <?php echo $v['t_name']; ?></h4></a>
 					<p><?php echo mb_strlen($v['t_content'], 'utf-8') > 50  ? mb_substr($v['t_content'], 0, 30 , 'utf-8').'....' : $v['t_content']; ?></p>
 					<div class="build-btn">
@@ -96,7 +96,7 @@ use yii\widgets\LinkPager;
 				</div>
 			<?php foreach ($row as $k => $v): ?>
 				<div class="col-md-3 building-left">
-					<a href="index.php?r=hotel/hot_about&id=<?php echo $v['g_id'] ?>"><img title="<?php echo $v['g_name']; ?>" src="http://<?php echo $v['g_p_img2']; ?>" alt="" /></a>
+					<a href="index.php?r=hotel/hot_about&id=<?php echo $v['g_id'] ?>"><img title="<?php echo $v['g_name']; ?>" src="<?php echo img_path;?><?php echo $v['g_p_img2']; ?>" alt="" /></a>
 					<a href="index.php?r=hotel/hot_about&id=<?php echo $v['g_id'] ?>"><h4>   <?php echo $v['g_name']; ?></h4></a>
 					<p><?php echo mb_strlen($v['g_content'], 'utf-8') > 50  ? mb_substr($v['g_content'], 0, 30 , 'utf-8').'....' : $v['g_content']; ?></p>
 					<div class="build-btn">
@@ -125,7 +125,7 @@ use yii\widgets\LinkPager;
 				</div>
 			<?php foreach ($els as $k => $v): ?>
 				<div class="col-md-3 building-left">
-					<a href="index.php?r=hotel/hot_about&id=<?php echo $v['g_id'] ?>"><img title="<?php echo $v['g_name']; ?>" src="http://<?php echo $v['g_p_img2']; ?>" alt="" /></a>
+					<a href="index.php?r=hotel/hot_about&id=<?php echo $v['g_id'] ?>"><img title="<?php echo $v['g_name']; ?>" src="<?php echo img_path;?><?php echo $v['g_p_img2']; ?>" alt="" /></a>
 					<a href="index.php?r=hotel/hot_about&id=<?php echo $v['g_id'] ?>"><h4>   <?php echo $v['g_name']; ?></h4></a>
 					<p><?php echo mb_strlen($v['g_content'], 'utf-8') > 50  ? mb_substr($v['g_content'], 0, 30 , 'utf-8').'....' : $v['g_content']; ?></p>
 					<div class="build-btn">
