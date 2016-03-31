@@ -37,7 +37,7 @@ require('./file/left.php');
                             <?php
                             foreach ($data as $k => $v) {
                                 ?>
-                                    <td style="width:350px;padding-left:60px"><a href="<?= Url::toRoute(['user/detail', 'id' => $v['p_id']])?>"><img src="<?= $v['p_img']?>" width="260px" height="280px" onerror="javascript:this.src='images/errors.jpg'"></a><br><font size="2"><?= $v['p_name']?></font><br><font color="green" size="2"><b><?= $v['p_jf']?></b></font>分</td>
+                                    <td style="width:350px;padding-left:60px"><a href="<?= Url::toRoute(['user/detail', 'id' => $v['p_id']])?>"><img src="<?php echo img_path;?><?= $v['p_img']?>" width="260px" height="280px" onerror="javascript:this.src='images/errors.jpg'"></a><br><font size="2"><?= $v['p_name']?></font><br><font color="green" size="2"><b><?= $v['p_jf']?></b></font>分</td>
 
                             <?php
                                 if($k%2==1){

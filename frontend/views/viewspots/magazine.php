@@ -47,7 +47,7 @@ navButtonsOpacity: 1
 	<li class="mis-slide">
 		<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']?>">
 			<figure>
-				<img src="http://<?php echo $v['t_p_img'];?>" alt="Pink Water Lillies">
+				<img src="<?php echo img_path;?><?php echo $v['t_p_img'];?>" alt="Pink Water Lillies">
 				<figcaption><?php echo $v['t_name'];?></figcaption>
 			</figure>
 		</a>
@@ -62,7 +62,7 @@ navButtonsOpacity: 1
 <?php foreach($season as $k=>$v) {?>
 					<div class="mag-btm">
 						<div class="col-md-4 mag-btm-left">
-							<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']?>"><img src="http://<?php echo $v['t_p_img']?>" alt="<?php echo $v['t_name']?>" /></a>
+							<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']?>"><img src="<?php echo img_path;?><?php echo $v['t_p_img']?>" alt="<?php echo $v['t_name']?>" /></a>
 						</div>
 						<div class="col-md-8 mag-btm-left">
 							<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']?>"><h4><?php echo $v['t_name']?></h4></a>
@@ -83,7 +83,7 @@ navButtonsOpacity: 1
 <?php foreach($city as $k=>$v) {?>
 	<div class="mag-btm">
 		<div class="col-md-4 mag-btm-left">
-			<a href="index.php?r=viewspots/detail&city=2&c_id=<?php echo $v['c_id']?>"><h1><?php echo $k+1;?></h1><img src="http://<?php echo $v['c_img']?>" alt="<?php echo $v['c_name']?>" /></a>
+			<a href="index.php?r=viewspots/detail&city=2&c_id=<?php echo $v['c_id']?>"><h1><?php echo $k+1;?></h1><img src="<?php echo img_path;?><?php echo $v['c_img']?>" alt="<?php echo $v['c_name']?>" /></a>
 		</div>
 		<div class="col-md-8 mag-btm-left">
 			<a href="index.php?r=viewspots/detail&city=2&c_id=<?php echo $v['c_id']?>"><h4><?php echo $v['c_name']?></h4></a>
@@ -105,7 +105,7 @@ navButtonsOpacity: 1
 <!--magazine-->
 <?php foreach($allinfo as $k=>$v) {?>
 	<div class="col-md-3 building-left">
-		<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']; ?>"><img title="<?php echo $v['t_name']; ?>" src="http://<?php echo $v['t_p_img']; ?>" alt="" /></a>
+		<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']; ?>"><img title="<?php echo $v['t_name']; ?>" src="<?php echo img_path;?><?php echo $v['t_p_img']; ?>" alt="" /></a>
 		<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']; ?>"><h4>   <?php echo $v['t_name']; ?></h4></a>
 		<p><?php echo mb_strlen($v['t_content'], 'utf-8') > 50  ? mb_substr($v['t_content'], 0, 30 , 'utf-8').'....' : $v['t_content']; ?></p>
 		<div class="build-btn">

@@ -15,7 +15,7 @@
 					<?php foreach ($arr as $key => $value): ?>
 						
 						<h4><?php echo $value['g_name'] ?></h4>
-						<p><img src="http://<?php echo $value['g_p_img'] ?>" height="200px;" width="200px;" alt=""></p>
+						<p><img src="<?php echo img_path;?><?php echo $value['g_p_img'] ?>" height="200px;" width="200px;" alt=""></p>
 						<p><font color="orange">￥<?php echo $value['g_money'] ?>起价</font>  位于<?php echo $value['g_place'] ?>  <font color="orange">人气 <?php echo $value['g_num'] ?></font></p>
 
 					<?php endforeach ?>
@@ -48,7 +48,7 @@
 				<table>
 					<tr>
 						<?php foreach ($arr2 as $key => $value): ?>
-							<td><a href="index.php?r=hotel/hotel_about&id=<?php echo $value['c_id'] ?>"><img src="http://<?php echo $value['c_img'] ?>" alt="<?php echo $value['c_name'] ?>" title="<?php echo $value['c_name'] ?>" width="200px;" height="150px;"><br></a>&nbsp;</td>
+							<td><a href="index.php?r=hotel/hotel_about&id=<?php echo $value['c_id'] ?>"><img src="<?php echo img_path;?><?php echo $value['c_img'] ?>" alt="<?php echo $value['c_name'] ?>" title="<?php echo $value['c_name'] ?>" width="200px;" height="150px;"><br></a>&nbsp;</td>
 								
 							<?php if (($key-3)%4 == 0){?>
 								</tr><tr>

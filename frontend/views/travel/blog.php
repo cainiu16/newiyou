@@ -10,7 +10,7 @@
 					<div class="blog-main-one">
 						<div class="blog-one">
 							<div class="col-md-5 blog-one-left">
-								<a href="index.php?r=travel/single&id=<?= $val['t_id']?>"><img src="<?= $val['t_img']?>" alt="" width="70" height="270" /></a>
+								<a href="index.php?r=travel/single&id=<?= $val['t_id']?>"><img src="<?php echo img_path;?><?= $val['t_img']?>" alt="" width="70" height="270" /></a>
 							</div>
 							<div class="col-md-7 blog-one-left">
 								<p>

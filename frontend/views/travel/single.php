@@ -8,7 +8,7 @@
 					</div>								
 					<div class="blog-main-one">
 						<div class="blog-one blog-sng">
-							<img src="<?= $list_arr['t_img']?>" alt="" width="200" height="500" />
+							<img src="<?php echo img_path;?><?= $list_arr['t_img']?>" alt="" width="200" height="500" />
 							<p class="sngl"><?= $list_arr['t_content']?></p>
 						</div>	
 						<div class="comments cmt">
@@ -25,7 +25,7 @@
 					<div class="comments cmt">
 					<table>
 					<tr>
-						<font color="red">用户头像</font><td><img src="<?= $val['m_img']?>" alt="用户头像" width="200" height="200" onerror="this.src='images/025632646.jpg'" /></td>
+						<font color="red">用户头像</font><td><img src="<?php echo img_path;?><?= $val['m_img']?>" alt="用户头像" width="200" height="200" onerror="this.src='images/025632646.jpg'" /></td>
 						<td>
 							<tr>
 								<td>评论内容 </td><td title="评论内容："><?= $val['re_content']?></td><br />
