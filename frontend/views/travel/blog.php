@@ -1,3 +1,8 @@
+    <script type="text/javascript" charset="utf-8" src="js/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="js/lang/zh-cn/zh-cn.js"></script>
 	<div class="blog">
 		<div class="container">
 			<div class="blog-top">
@@ -58,7 +63,7 @@
 		</div>
 		<div class="categories">
 <center>
-<font color="red">发表新帖</font><br />
+<h2><font color="red">发表新帖</font></h2><br />
 <table width="50%">
 
 	<?php
@@ -67,10 +72,24 @@
 	?>
 
 	<?= Html::beginForm('index.php?r=travel/upload' , 'post' , ['enctype' => 'multipart/form-data']) ?>
-	帖子标题：<input type="text" name='title' /><br />
-	景点展示：<?= Html::activeFileInput($model, 't_img')?>
-	帖子内容：<textarea name="content" id="" cols="30" rows="10"></textarea><br />
-	<input type="submit" value="发表帖子" />
+	<table>
+	<tr>
+		<td>帖子标题：</td>
+		<td><input type="text" name='title' /></td>
+	</tr>
+	<tr>
+		<td>景点展示：</td>
+		<td><?= Html::activeFileInput($model, 't_img')?></td>
+	</tr>
+	<tr>
+		<td>帖子内容：</td>
+		<td><script id="editor" type="text/plain" style="width:500px;height:200px;" name="content"></script></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit" value="发表帖子" /></td>
+	</tr>
+	</table>
 
 	<?= Html::endForm(); ?>
 </form>
@@ -78,6 +97,9 @@
 </center>
 	</div>
 	</div>
+	<script type="text/javascript">
+		var ue = UE.getEditor('editor');
+	</script>
 
 	<!--blog-->
 	<!--read-->
