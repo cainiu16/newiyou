@@ -368,66 +368,76 @@ public function actionJinyong(){
 
 
 
-
+	/*
+	 *轮播图管理显示列表
+	  作者：张晨阳
+	 */
 	public function actionLunbo()
 	{
+		
 		$this->layout="header";
-        //实例化轮播图表
         $model = new Imgs();
-        //调用model层的查询方法
         $info = $model->sel();
-        //调用分页方法
-        // $fy = $model->fenye();
-        // $page = $fy['page'];
-        // $content = $fy['content'];
-		// return $this->render('lunbo',['info'=>$info,'page'=>$page,'content'=>$content]);
-
 		$connection = Yii::$app->db;
          if (empty($_GET['page'])) {
            $page = 1;
         }else{
             $page = $_GET['page'];
         }
-        $pagesize = 2;//每页显示条数
-        //查询数据库中一共有多少条数据
+        $pagesize = 2;
         $command = $connection->createCommand('SELECT COUNT(*) FROM imgs');   
-        $postCount = $command->queryScalar();//查询标量值/计算值：queryScalar();
-        $countpage = ceil($postCount/$pagesize);//总页数
-        $limit2 = ($page-1)*$pagesize;//偏移量
+        $postCount = $command->queryScalar();
+        $countpage = ceil($postCount/$pagesize);
+        $limit2 = ($page-1)*$pagesize;
         $command = $connection->createCommand("select * from imgs where i_del=1 order by i_id desc limit $limit2,$pagesize");
-       //执行查询的sql语句,查询返回多行：
         $arr = $command->queryAll();
-        //返回结果信息
         return $this->render('lunbo',['arr'=>$arr,'page'=>$page,'countpage'=>$countpage]);
 	}
-	//首页的最热景点展示管理
+
+	/*
+	  景点管理显示列表
+	  作者：张晨阳
+	 */
 	public function actionZuire()
 	{
+		
 		$this->layout="header";
 		return $this->render('zuire');
 	}
-	//轮播图执行移除 状态的改变不是物理移除
+
+	/*
+	 *轮播图管理移除调用页面
+	  作者：张晨阳
+	 */
 	public function actionDel()
 	{
-		//接收传来移除的ID
+		
 		$id = $_GET['id'];
-        //实例化轮播图表	
         $model = new Imgs();
-        //调用model层的查询方法
         $info = $model->del();
 	}
-	//轮播图执行修改
+
+	/*
+	 *轮播图管理执行修改
+	  作者：张晨阳
+	 */
 	public function actionSave()
 	{
+		
 		$this->layout="header";
 		$model = new Imgs();
 		$id = $_GET['id'];
-		//根据修改的ID进行查询对应的信息
 		$info = $model->sel2($id);
 		return $this->render('xiu',['model'=>$model,'id'=>$id,'info'=>$info]);
 	}
-	//轮播图执行修改方法
-	public function actionUpload(){
+
+	/*
+	 *轮播图管理执行修改方法
+	  作者：张晨阳
+	 */
+	public function actionUpload()
+	{
+		
 		$this->layout="header";
 		$model = new Imgs();
 		$id = $_POST['id'];
@@ -447,19 +457,28 @@ public function actionJinyong(){
             }
 
 	}
-	//执行添加调用页面
+
+	/*
+	 *轮播图管理执行添加调用页面
+	  作者：张晨阳
+	 */
 	public function actionAdd()
 	{
+		
 		$this->layout="header";	
 		$model = new Imgs();	
 		return $this->render('add',['model'=>$model]);
 	}
-	//执行添加方法
+
+	/*
+	 *轮播图管理执行添加方法
+	  作者：张晨阳
+	 */
 	public function actionDoadd()
 	{
+		
 		$this->layout="header";
 		$model = new Imgs();
-		//上传的图片处理
         $b = $model->i_img = UploadedFile::getInstance($model, 'i_img');
             $arr=$model->i_img->saveAs('./../../images/'.$model->i_img->baseName . '.' . $model->i_img->extension);
             $i_img = ''.$model->i_img->name;
