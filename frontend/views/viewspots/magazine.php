@@ -71,7 +71,7 @@ navButtonsOpacity: 1
 <?php } ?>
 <?php /* echo LinkPager::widget([
 	'pagination'=>$page,
- */])?>
+ ])*/?>
 </div>
 <div class="col-md-5 magazine-bottom-left">
 <h3>最热の城市</h3>
