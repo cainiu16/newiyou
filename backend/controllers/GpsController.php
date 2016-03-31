@@ -1,6 +1,11 @@
 <?php
-namespace backend\controllers;
 
+	/*
+	 *导航栏管理
+	 *张俊虎
+	 */
+
+namespace backend\controllers;
 use Yii;
 use app\models\Travels;
 use yii\filters\AccessControl;
@@ -17,29 +22,39 @@ use app\models\Gps;
 class GpsController extends Controller
 {
 	public $enableCsrfValidation = false;
-	//后台登陆
+	/*
+	 *导航栏显示
+	 *张俊虎
+	 */
+	
 	public function actionIndex()
 	{
+
 		$this->layout='header';
 		$model = new Gps;
-		// $select = $model->find()->asArray()->all();
-		// print_r($select);die;
 		 if (empty($_GET['page'])) {
            $page = 1;
         }else{
             $page = $_GET['page'];
         }
 
-		$pagesize = 3;//每页显示条数
-        //查询数据库中一共有多少条数据
+		$pagesize = 3;
         $postCount = $model->find()->count();
-        $countpage = ceil($postCount/$pagesize);//总页数
-        $limit2 = ($page-1)*$pagesize;//偏移量
+        $countpage = ceil($postCount/$pagesize);
+        $limit2 = ($page-1)*$pagesize;
         $select = $model->selects($limit2,$pagesize);
   		return $this->render('index',['select'=>$select,'page'=>$page,'countpage'=>$countpage]); 
+
 	}
+
+	/*
+	 *客服管理添加
+	 *张俊虎
+	 */
+	
 	public function actionAdd()
 	{
+
 		$this->layout='header';
 		$model = new Gps;
 		if ($_POST) {
@@ -52,7 +67,13 @@ class GpsController extends Controller
 		}else{
 			return $this->render('add');
 		}
+
 	}
+
+	/*
+	 *客服管理删除
+	 *张俊虎
+	 */
 
 	public function actionDel()
 	{
@@ -66,6 +87,11 @@ class GpsController extends Controller
 		}
 	}
 
+	/*
+	 *客服管理修改
+	 *张俊虎
+	 */
+	
 	public function actionUpda()
 	{
 		$this->layout='header';
@@ -85,4 +111,5 @@ class GpsController extends Controller
 			return $this->render('upda',['select'=>$select]);
 		}
 	}
+	
 }
