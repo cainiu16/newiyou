@@ -150,7 +150,7 @@
 
 		<div class="art-one">
 
-		<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']?>"><img src="http://<?php echo $v['t_p_img'];?>" alt=""  title="<?php echo $v['t_name'];?>" width="350" height="350"/></a>
+		<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']?>"><img src="<?php echo site_url;?><?php echo $v['t_p_img'];?>" alt=""  title="<?php echo $v['t_name'];?>" width="350" height="350"/></a>
 		<div class="art-btm">
 			<a href="index.php?r=viewspots/detail&season=1&s_id=<?php echo $v['t_id']?>"><h3><?php echo $v['t_name'];?></h3></a>
 			<p><?php echo mb_strlen($v['t_content'],'utf-8')>30?mb_substr($v['t_content'],0,30,'utf-8').'……':$v['t_content']?></p>
