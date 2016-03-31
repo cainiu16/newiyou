@@ -18,7 +18,7 @@ require('./file/left.php');
     <div class="ucenter">
         <div class="ucenter-info mt10">
            <center><font size="5"><?= $data['p_name']?></font><br>
-            <div style="float:left;margin-left:140px;"><img src="<?= $data['p_img']?>" onerror="avascript:this.src='images/errors.jpg'" width="200px" height="240px"></div>
+            <div style="float:left;margin-left:140px;"><img src="<?php echo img_path;?><?= $data['p_img']?>" onerror="avascript:this.src='images/errors.jpg'" width="200px" height="240px"></div>
            </center>
                     <div style="width:300px;float:left;height:300px;margin-left:50px">
                         <font size="4">

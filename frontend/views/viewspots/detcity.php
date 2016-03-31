@@ -16,7 +16,7 @@
                 </div>
                 <div class="blog-main-one">
                     <div class="blog-one blog-sng">
-                        <img src="http://<?= $city['c_img']?>" alt="" />
+                        <img src="<?php echo img_path;?><?= $city['c_img']?>" alt="" />
                         <p class="sngl"><?= $city['c_desc']?></p>
                     </div>
                     <div class="comments cmt">
@@ -50,7 +50,7 @@
                     <div class="related-bottom">
                         <?php foreach($view as $k=>$v){?>
                             <div class="col-md-3 related-left">
-                            <a href="index.php?r=viewspots/detail&season=1&s_id=<?= $v['t_id'];?>"><img src="http://<?= $v['t_p_img']?>" alt="<?= $v['t_name'];?>" title="<?= $v['t_name']?>" /></a>
+                            <a href="index.php?r=viewspots/detail&season=1&s_id=<?= $v['t_id'];?>"><img src="<?php echo img_path;?><?= $v['t_p_img']?>" alt="<?= $v['t_name'];?>" title="<?= $v['t_name']?>" /></a>
                                 <a href="index.php?r=viewspots/detail&season=1&s_id=<?= $v['t_id'];?>"><h4><?= $v['t_name']?></h4></a>
                         </div>
                         <?php }?>
@@ -62,7 +62,7 @@
                     <div class="related-bottom">
                         <?php foreach($hotel as $k=>$v){?>
                             <div class="col-md-3 related-left">
-                                <a href="index.php?r=hotel/hot_about&id=<?= $v['g_id'];?>"><img src="http://<?= $v['g_p_img']?>" alt="<?= $v['g_name'];?>" title="<?= $v['g_name']?>" /></a>
+                                <a href="index.php?r=hotel/hot_about&id=<?= $v['g_id'];?>"><img src="<?php echo img_path;?><?= $v['g_p_img']?>" alt="<?= $v['g_name'];?>" title="<?= $v['g_name']?>" /></a>
                                 <a href="index.php?r=hotel/hot_about&id=<?= $v['g_id'];?>"><h4><?= $v['g_name']?></h4></a>
                             </div>
                         <?php }?>

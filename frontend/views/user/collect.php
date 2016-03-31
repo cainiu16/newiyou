@@ -37,7 +37,7 @@ require('./file/left.php');
                                 foreach ($models as $k => $v) {
                                     ?>
                                     <tr>
-                                        <td class="list"><img src="<?= $v['t_p_img'] . " "; ?>" height="100px" width="50px" onerror="javascript:this.src='images/errors.jpg'"></td>
+                                        <td class="list"><img src="<?php echo img_path;?><?= $v['t_p_img'] . " "; ?>" height="100px" width="50px" onerror="javascript:this.src='images/errors.jpg'"></td>
                                         <td class="list">
                                             <h4><?= $v['t_name'] ?></h4><?= mb_substr($v['t_content'], 0, 30, 'utf-8') . "..."; ?>
                                         </td>

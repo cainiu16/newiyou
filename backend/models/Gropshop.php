@@ -1,25 +1,10 @@
 <?php
-
-namespace app\models;
-
-use Yii;
-
 /**
- * This is the model class for table "gropshop".
- *
- * @property integer $g_id
- * @property string $g_name
- * @property string $g_money
- * @property integer $g_type_id
- * @property string $g_content
- * @property string $g_p_img
- * @property string $g_p_img2
- * @property string $g_p_img3
- * @property integer $g_del
- * @property integer $g_num
- * @property string $g_place
- * @property string $g_coordinate
+ * 酒店
+ * wpj
  */
+namespace app\models;
+use Yii;
 class Gropshop extends \yii\db\ActiveRecord
 {
     /**
@@ -62,23 +47,36 @@ class Gropshop extends \yii\db\ActiveRecord
             'g_coordinate' => 'G Coordinate',
         ];
     }
+    /**
+     * 酒店条数
+     * wpj
+     */
     public function jiudian(){
         $count = $this->findBysql("SELECT COUNT(*) FROM gropshop")->asArray()->all();
         return $count;
     }
+    /**
+     * 酒店软删除
+     * wpj
+     */
     public function gropshopupdt($id){
-        //return $id;die;
         $num = 0;
          $update = Yii::$app->db->createCommand()->update('gropshop',['g_del'=>$num],"g_id='$id'")->query();
         return $update;
     }
+    /**
+     * 酒店图片
+     * wpj
+     */
     public function jiudianimg($id){    
-        // $command = $this->find()->where("g_id='$id'")->asArray()->all();
-        //$command = Yii::$app->db->createCommand("SELECT * FROM gropshop WHERE g_id=$id");
         $info = $this->find()->where(['g_id'=>$id])->asArray()->one();
         return $info;
     }
-public function doadd($g_p_img)
+    /**
+     * 酒店添加
+     * wpj
+     */
+    public function doadd($g_p_img)
     {
         $g_name = $_POST['g_name'];
         $g_money = $_POST['g_money'];
