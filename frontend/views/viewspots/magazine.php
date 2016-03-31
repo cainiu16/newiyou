@@ -1,4 +1,9 @@
 <?php
+/**
+ *景点模块首页
+ *author：汪娜娜
+ *time：2016/3/31
+ */
 use yii\widgets\LinkPager;
 ?>
 <script src="lib/modernizr/modernizr-custom.js"></script>
