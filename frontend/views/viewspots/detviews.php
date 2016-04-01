@@ -36,7 +36,7 @@
                             #l-map{height:300px;width:100%;}
                             #r-result{width:100%;}
                         </style>
-                        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=44K9c3F0ZPwdvnb6FZp6amgzuNEHe4mO"></script>
+                        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=gKKL2eC0xG8oZI2OWE0chRhPB51l7hig"></script>
                         <div id="l-map"></div>
                         <div id="r-result"></div>
                         <script type="text/javascript">

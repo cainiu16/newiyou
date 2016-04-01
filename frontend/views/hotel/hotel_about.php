@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 		#l-map{height:300px;width:100%;}
 		#r-result{width:100%;}
 	</style>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9IRuZHVNO5RqiVjMEiLLoG2QrHcX1YHv"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=gKKL2eC0xG8oZI2OWE0chRhPB51l7hig"></script>
 
 </head>
 
