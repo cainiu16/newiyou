@@ -6,7 +6,7 @@
 				<h3>热门酒店</h3>
 				<div class="latest-bottom">
 					<div class="col-md-6 latest-top-left">
-						<a href="index.php?r=hotel/hot_about&id=<?php echo $re['g_id'] ?>"><img width="548px;" height="405px;" src="<?php echo img_paht;?><?php echo $re['g_p_img'] ?>" alt="<?php echo $re['g_name'] ?>" title="<?php echo $re['g_name'] ?>"/></a>
+						<a href="index.php?r=hotel/hot_about&id=<?php echo $re['g_id'] ?>"><img width="548px;" height="405px;" src="<?php echo img_path;?><?php echo $re['g_p_img'] ?>" alt="<?php echo $re['g_name'] ?>" title="<?php echo $re['g_name'] ?>"/></a>
 					</div>
 					<div class="col-md-6 latest-top-left">
 						<h4><a href="index.php?r=hotel/hot_about&id=<?php echo $re['g_id'] ?>"><?php echo $re['g_name'] ?></a></h4>
@@ -66,7 +66,7 @@
 						<?php foreach ($result as $key => $value): ?>
 						 	
 						 		<td>
-							 		<a href="index.php?r=hotel/hot_about&id=<?php echo $value['g_id'] ?>"><img src="http://<?php echo $value['g_p_img'] ?>" alt="<?php echo $value['g_name'] ?>" title="<?php echo $value['g_name'] ?>" width="180px;" height="150px;"></a>
+							 		<a href="index.php?r=hotel/hot_about&id=<?php echo $value['g_id'] ?>"><img src="<?php echo img_path;?><?php echo $value['g_p_img'] ?>" alt="<?php echo $value['g_name'] ?>" title="<?php echo $value['g_name'] ?>" width="180px;" height="150px;"></a>
 							 		<p><a href="index.php?r=hotel/hot_about&id=<?php echo $value['g_id'] ?>"><?php echo $value['g_name'] ?> </a> ￥<?php echo $value['g_money'] ?> </p>
 							 		<p></p>
 						 		</td>
