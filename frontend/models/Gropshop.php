@@ -113,13 +113,20 @@ class Gropshop extends \yii\db\ActiveRecord
     //酒店详情
     public function hotel_about($id)
     {
-        $selects = $this->findBysql("SELECT * FROM gropshop INNER JOIN grop_type ON gropshop.g_type_id = grop_type.t_id WHERE g_id = '$id'")->asArray()->all();
+         $selects = $this->find()
+            ->innerjoin('grop_type','gropshop.g_type_id = grop_type.t_id')
+            ->where(['gropshop.g_id'=>$id])
+            ->select('*')
+            ->asArray()
+            ->one();
+       
+
+        $num = Yii::$app->db->createCommand()->update('gropshop',['g_num'=>$selects['g_num']+1],['g_id'=>$id])->query();
         return $selects;
     }
-
     public function search($hotel)
     {
-        $selects = $this->findBysql("SELECT * FROM gropshop INNER JOIN city ON gropshop.c_id = city.c_id WHERE g_name and c_name like '%$hotel%'")->asArray()->all();
+         $selects = $this->findBysql("SELECT * FROM gropshop INNER JOIN city ON gropshop.c_id = city.c_id WHERE gropshop.g_name like '%$hotel%'")->asArray()->all();
         return $selects;
     }
         /**

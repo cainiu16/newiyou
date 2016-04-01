@@ -5,17 +5,17 @@
 				<h3>热门酒店</h3>
 				<div class="latest-bottom">
 					<div class="col-md-6 latest-top-left">
-						<img src="<?php echo img_path;?><?php echo $re['g_p_img'] ?>" alt="<?php echo $re['g_name'] ?>" title="<?php echo $re['g_name'] ?>"/>
+						<img src="http://<?php echo $re['g_p_img'] ?>" alt="<?php echo $re['g_name'] ?>" title="<?php echo $re['g_name'] ?>"/>
 					</div>
 					<div class="col-md-6 latest-top-left">
 						<h4><?php echo $re['g_name'] ?></h4>
 						<p><?php echo $re['g_content']."..." ?><a href="#">详情</a></p>
 						<div class="latest-btm">
 							<div class="col-md-6 latest-btm-left">
-								<img src="<?php echo img_path;?><?php echo $re['g_p_img2'] ?>" width="200px;" height="200px;" alt="<?php echo $re['g_name'] ?>" title="<?php echo $re['g_name'] ?>" />
+								<img src="http://<?php echo $re['g_p_img2'] ?>" width="200px;" height="200px;" alt="<?php echo $re['g_name'] ?>" title="<?php echo $re['g_name'] ?>" />
 							</div>
 							<div class="col-md-6 latest-btm-left">
-								<img src="<?php echo img_path;?><?php echo $re['g_p_img3'] ?>" width="200px;" height="200px;" alt="<?php echo $re['g_name'] ?>" title="<?php echo $re['g_name'] ?>" />
+								<img src="http://<?php echo $re['g_p_img3'] ?>" width="200px;" height="200px;" alt="<?php echo $re['g_name'] ?>" title="<?php echo $re['g_name'] ?>" />
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -38,7 +38,7 @@
 				<table>
 					<tr>
 						<?php foreach ($arr as $key => $value): ?>
-							<td><a href="index.php?r=hotel/hotel_about&id=<?php echo $value['c_id'] ?>"><img src="<?php echo img_path;?><?php echo $value['c_img'] ?>" alt="<?php echo $value['c_name'] ?>" title="<?php echo $value['c_name'] ?>" width="200px;" height="150px;"><br></a>&nbsp;</td>
+							<td><a href="index.php?r=hotel/hotel_about&id=<?php echo $value['c_id'] ?>"><img src="http://<?php echo $value['c_img'] ?>" alt="<?php echo $value['c_name'] ?>" title="<?php echo $value['c_name'] ?>" width="200px;" height="150px;"><br></a>&nbsp;</td>
 								
 							<?php if (($key-4)%5 == 0){?>
 								</tr><tr>

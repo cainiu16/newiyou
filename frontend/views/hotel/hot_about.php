@@ -1,7 +1,7 @@
 ﻿
 <html>
 	<head>
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=44K9c3F0ZPwdvnb6FZp6amgzuNEHe4mO"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9IRuZHVNO5RqiVjMEiLLoG2QrHcX1YHv 	"></script>
 	</head>
 
 
@@ -12,23 +12,22 @@
 				<h3>酒店详情</h3>
 				<div class="latest-bottom">
 					<div class="col-md-6 latest-top-left">
-					<?php foreach ($arr as $key => $value): ?>
+					
 						
-						<h4><?php echo $value['g_name'] ?></h4>
-						<p><img src="<?php echo img_path;?><?php echo $value['g_p_img'] ?>" height="200px;" width="200px;" alt=""></p>
-						<p><font color="orange">￥<?php echo $value['g_money'] ?>起价</font>  位于<?php echo $value['g_place'] ?>  <font color="orange">人气 <?php echo $value['g_num'] ?></font></p>
+						<h4><?php echo $re['g_name'] ?></h4>
+						<p><img src="http://<?php echo $re['g_p_img'] ?>" height="200px;" width="200px;" alt=""></p>
+						<p><font color="orange">￥<?php echo $re['g_money'] ?>起价</font>  位于<?php echo $re['g_place'] ?>  <font color="orange">人气 <?php echo $re['g_num'] ?></font></p>
 
-					<?php endforeach ?>
+					
 					<div style="width:550px;height:300px;border:#ccc solid 1px;font-size:12px" id="map"></div>
 				    
 					</div>
 					<div class="col-md-6 latest-top-left">
 						<h4>介绍</h4>
-						<?php foreach ($arr as $key => $value): ?>
-						<p>有“<?php echo $value['t_name'] ?>”之称</p>
-						<p><?php echo $value['g_content'] ?></p>
-						<?php endforeach ?>
-						
+					
+						<p>有“<?php echo $re['t_name'] ?>”之称</p>
+						<p><?php echo $re['g_content'] ?></p>
+	
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -48,7 +47,7 @@
 				<table>
 					<tr>
 						<?php foreach ($arr2 as $key => $value): ?>
-							<td><a href="index.php?r=hotel/hotel_about&id=<?php echo $value['c_id'] ?>"><img src="<?php echo img_path;?><?php echo $value['c_img'] ?>" alt="<?php echo $value['c_name'] ?>" title="<?php echo $value['c_name'] ?>" width="200px;" height="150px;"><br></a>&nbsp;</td>
+							<td><a href="index.php?r=hotel/hotel_about&id=<?php echo $value['c_id'] ?>"><img src="http://<?php echo $value['c_img'] ?>" alt="<?php echo $value['c_name'] ?>" title="<?php echo $value['c_name'] ?>" width="200px;" height="150px;"><br></a>&nbsp;</td>
 								
 							<?php if (($key-3)%4 == 0){?>
 								</tr><tr>

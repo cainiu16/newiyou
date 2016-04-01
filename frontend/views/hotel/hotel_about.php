@@ -1,4 +1,9 @@
-﻿<html>
+﻿<?php 
+use yii\helpers\Html;
+use yii\widgets\LinkPager;
+use yii\widgets\ActiveForm;
+ ?>
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -7,7 +12,7 @@
 		#l-map{height:300px;width:100%;}
 		#r-result{width:100%;}
 	</style>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=44K9c3F0ZPwdvnb6FZp6amgzuNEHe4mO"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9IRuZHVNO5RqiVjMEiLLoG2QrHcX1YHv"></script>
 
 </head>
 
@@ -65,25 +70,25 @@
 					</div>
 					<div class="col-md-6 news-left">
 					<h3>最近浏览过的酒店</h3>
-						<h4></h4>
-						<p></p>
+						
 					</div>
 					<div class="clearfix"></div>
 				</div>
 			
 		</div>
 
-	<div class="new" >
+	
 		<div class="container">
 			<div class="new-top"></div>	
-				<div class="news-bottom" id="list">
-						<div class="col-md-6 news-left" style="width:500px">
+				<div class="news-bottom">
+						<div class="col-md-6 news-left" style="width:500px" id="list">
+							
 							<?php foreach ($c as $key => $value): ?>
 							<p><font color="orange" style="font-size:18px;"><?php echo $value['g_name'] ?></font></p>
 							<p>￥  <font color="orange"><?php echo $value['g_money'] ?></font>  起价</p>
 							<table>
 								<tr>
-									<td><img src="<?php echo img_path;?><?php echo $value['g_p_img'] ?>" alt="<?php echo $value['g_name'] ?>" title="<?php echo $value['g_name'] ?>" width="260px;"></td>
+									<td><img src="http://<?php echo $value['g_p_img'] ?>" alt="<?php echo $value['g_name'] ?>" title="<?php echo $value['g_name'] ?>" width="260px;"></td>
 									<td>
 										<p ><?php echo $value['g_desc'] ?></p>
 										<div class="sp-btn" style="height:20px; width:100px;">
@@ -98,43 +103,20 @@
 							
 							<?php endforeach ?>
 							
-							<a href="index.php?r=hotel/hotel_about&id=<?php echo $re['g_id'] ?>&page=<?php 
-						    if ($page-1<1) {
-						        echo '1';
-						    }else{
-						        $aa = $page-1;
-						        echo $aa;
-						    }
-						     ?>">上一页</a>&nbsp;
-						    
-						    <a href="index.php?r=hotel/hotel_about&&id=<?php echo $re['g_id'] ?>page=<?php 
-						    if ($page+1>$countpage) {
-						        echo "$countpage";
-						    }else{
-						        $bb = $page+1;
-						        echo $bb;
-						    }
-						     ?>">下一页</a><br/>
-						     当前第<?php echo "$page"; ?>页----
-						     共<?php echo "$countpage";?>页
-							
+							<?php echo LinkPager::widget([
+								'pagination' => $pages,
+
+								]);?>
 						</div>
+
+						
+					<div class="clearfix"></div>
 				</div>
 		</div>
-	</div>
+	
 
 	<!--new-->
-	<!--special-->
-	<div class="special">
-		<div class="container">
-			<div class="special-main">
-				<h3></h3>
-				<p></p>
-				
-			</div>
-		</div>
-	</div>
-	<!--special-->
+	
 	<!--read-->
 </div>
 
