@@ -7,10 +7,13 @@ $session->open();
 	<div class="banner">
 		<div class="container">
 			<div class="banner-top">
-				
-				   <?php if($session['m_name']){?>
-		<h1>欢迎<font color="red"><?php echo $session['m_name']?></font>光临爱游网</h1>
-	<?php }else{?>
+	    <?php if($session['m_name']){?>
+			<style>
+				.banner{
+					display:none;
+				}
+			</style>
+		<?php }else{?>
 		  <ul>
 
 			<li><a class="sub" href="index.php?r=login/login">登录</a></li>
@@ -39,8 +42,6 @@ pagination : true,
 <!-- //requried-jsfiles-for owl -->
 <!-- start content_slider -->
 <div id="owl-demo" class="owl-carousel text-center">
-
-
 <!-- <!-- 轮播开始 -->
 <?php foreach ($row as $k=>$v) {
    if($k==0){

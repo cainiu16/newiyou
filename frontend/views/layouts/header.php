@@ -8,12 +8,15 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
+use app\models\Friendlist;
 use common\widgets\Alert;
 $session = Yii::$app->session;
 $session->open();
 AppAsset::register($this);
+$this->beginPage(); 
+$model = new Friendlist();
+$friendlists = $model->alllist();
 ?>
-<?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,9 +51,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <div class="header-top" id="home">
     <div class="container">
       <div class="header-logo">
-        <a href="index.html"><img src="images/logo.png" alt=""/></a>
+        <a href="index.php?r=data/index"><img src="images/logo.png" alt=""/></a>
       </div>
-      <div class="top-nav">
+      <div class="top-nav" style="text-align:center">
         <span class="menu"><img src="images/menu-icon.png" alt=""/></span>
         <ul class="nav1">
           <li><a href="index.php?r=data/index">首页 </a></li>
@@ -59,9 +62,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <!-- <li><a href="404.html">网站公告</a></li> -->
           <li><a href="index.php?r=travel/travel">驴友游记</a></li>
           <li><a href="index.php?r=hotel/hotel">酒店</a></li>
+		  <?php if($session['m_name']){?>
           <li><a href="index.php?r=data/user">个人中心</a></li>
-          
-         
+		  <?php }?> 
           <!-- <li><a href="news.html">投诉</a></li> -->
         </ul>
         <!-- script-for-menu -->
@@ -75,15 +78,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- /script-for-menu -->
       </div>
       <div class="social-icons">
-<!--        <ul>
-          <li><a href="#"><span class="twit"> </span></a></li>
-          <li><a href="#"><span class="fb"> </span></a></li>
-          <li><a href="#"><span class="g"> </span></a></li>
-        </ul> -->
+		<?php if($session['m_name']){?>
+			<span style="margin-left:50px;color:white;">Hi,<a href="index.php?r=data/user" style="color:white;"><?php echo mb_strlen($session['m_name'],'utf-8')>4?mb_substr($session['m_name'],0,4,'utf-8').'…':$session['m_name'];?></a></span>
+		<?php }?>
       </div>
-      <div class="clearfix"> </div>
     </div>
-    <div class="search-box">
       <div id="sb-search" class="sb-search">
        <?php if($session['m_name']){?>
           <a href="javascript:void(0)" class="out">
@@ -100,7 +99,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                })
           
       </script>
-    </div>
     <div class="header-info-right">
         <div class="header cbp-spmenu-push">
           <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
@@ -160,49 +158,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </script>
   <!--//search-scripts-->
   <!--banner-->
-    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" target="target">免费模板</a></div>
-
-
 <?= $content ?>
 
  <!-- 公共尾部代码 -->
   <div class="read">
     <div class="container">
       <div class="read-main">
-        <div class="col-md-5 read-left">
+        <!--<div class="col-md-5 read-left">
           <h3>友情链接</h3>
           <div class="read-btm">
-            <div class="col-md-4 rd-left">
-              <ul>
-                <li><a href="http://www.ctrip.com" target="target">携程</a></li>
-                <li><a href="http://www.tuniu.com" target="target">途牛</a></li>
-                <li><a href="http://www.qunar.com" target="target">去哪儿</a></li>
-                <li><a href="http://www.qyer.com" target="target">穷游</a></li>
-           
-              </ul>
-            </div>
-            <div class="col-md-4 rd-left">
-              <ul>
-                <li><a href="http://www.taobao.com" target="target">淘宝</a></li>
-                <li><a href="http://www.jd.com" target="target">京东</a></li>
-                <li><a href="http://www.163.com" target="target">网易</a></li>
-                <li><a href="http://www.sina.com" target="target">新浪</a></li>
-             
-              </ul>
-            </div>
-            <div class="col-md-4 rd-left">
-              <ul>
-                <li><a href="http://bj.meituan.com" target="target">美团</a></li>
-                <li><a href="http://www.suning.com/" target="target">苏宁易购</a></li>
-                <li><a href="http://bj.jumei.com/" target="target">聚美优品</a></li>
-                <li><a href="https://www.ele.me/home/" target="target">饿了么</a></li>
-                
-              </ul>
-            </div>
+		  <?php foreach($friendlists as $k=>$v){?>
+			<div class="col-md-4 rd-left">
+			<ul>
+                <li><a href="http://<?php echo $v['f_url']?>" target="target"><?php echo $v['f_name']?></a>
+				</li>
+		    </ul>
+			</div>  
+		  <?php }?>
+		  
             <div class="clearfix"></div>
-          </div>
+          </div>-->
         </div>
-        <div class="col-md-5 read-left">
+        <!--<div class="col-md-5 read-left">
           <h3>不能错过</h3>
           <div class="read-btm">
             <div class="read-one">
@@ -226,8 +203,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <div class="clearfix"></div>
             </div>
           </div>
-        </div>
-        <div class="col-md-2 read-left">
+        </div>-->
+        <!--<div class="col-md-2 read-left">
           <h3>客服中心</h3>
           <div class="read-btm follow">
             <ul>
@@ -237,7 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <li><a href="#" class="p">QQ</a></li>
             </ul>
           </div>
-        </div>
+        </div>-->
         <div class="clearfix"></div>
       </div>
     </div>
@@ -247,14 +224,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <div class="footer">
     <div class="container">
       <div class="footer-top">
-        <div class="col-md-6 footer-left">
-          <p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a></p>
-        </div>
-        <div class="col-md-6 footer-right">
-          <a href="index.html"><img src="images/lg.png" alt="" /></a>
-        </div>
+          <h5 style="color:white;">友情链接</h5>
+		  <style>
+			ol li{
+				list-style:none;
+				float:left;
+			}
+			ol li a{
+				color:white;
+				font-size:10px;
+			}
+		  </style>
+		  <ol style="list-style:none;">
+		  <?php foreach($friendlists as $k=>$v){?>
+                <li><a href="http://<?php echo $v['f_url']?>" target="target"><?php echo $v['f_name']?>&nbsp;&nbsp;&nbsp;</a>
+				</li>	     
+		  <?php }?>
+		  </ol>
         <div class="clearfix"></div>
-      </div>
+		<a href="index.php?r=data/index"><img src="images/logo.png" alt=""/></a>©<span style="color:white;font-size:10px">2016 happycainiu.com <a href="http://www.miibeian.gov.cn/" target="target" style="color:white;font-size:10px">京ICP备16014946号-1</a> 新出网证(京)字iyou号</span>
     </div>
     <script type="text/javascript">
                   $(document).ready(function() {
