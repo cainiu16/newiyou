@@ -34,8 +34,6 @@ navButtonsOpacity: 1
 });
 </script>
 <!-- Apply other styles -->
-<link href='http://fonts.useso.com/css?family=Roboto+Condensed:400|Roboto:500' rel='stylesheet'>
-<link href="css/styles.css" rel="stylesheet">
 <!--magazine-->
 <div class="magazine">
 <div id="wrapper">
