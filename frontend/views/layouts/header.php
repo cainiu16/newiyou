@@ -10,12 +10,21 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use app\models\Friendlist;
 use common\widgets\Alert;
+use app\models\Kefu;
 $session = Yii::$app->session;
 $session->open();
 AppAsset::register($this);
 $this->beginPage(); 
+/**
+ *友情链接
+ */
 $model = new Friendlist();
 $friendlists = $model->alllist();
+/**
+ *qq客服
+ */
+ $qq = new Kefu();
+ $qqlist = $qq->allkefu();
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,10 +38,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <script src="js/jquery-1.11.0.min.js"></script>
-<link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-<!-- <link href="css/UserCSS.css" rel="stylesheet" type="text/css" />
-<script src="js/ops.js" type="text/javascript"></script>
-<script src="js/UserJS.js" type="text/javascript"></script> -->
 <!---- start-smoth-scrolling---->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -45,6 +50,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       });
     </script>
 <!--start-smoth-scrolling-->
+<!--在线客服-->
+<style type="text/css">
+ul{list-style:none;}
+/* slides */
+.slides{position:fixed;right:0;top:45%;}
+.slides .slideul>li{position:relative;display:block;width:56px;height:56px;margin-bottom:10px;overflow:visible;}
+.slides .slideul>li.kefu{width:66px;padding-left:10px;margin-left:-10px;}
+.slides .slideul>li ul.kefulist{position:absolute;left:-86px;top:-30px;padding-right:10px;display:none;}
+.slides .slideul>li ul.kefulist li{margin-bottom:10px;}
+.slides .slideul>li ul.kefulist li a{display:block;width:90px;height:30px;line-height:30px;background:#a8defe;color:#fff;text-align:center;text-decoration:none;}
+.slides .slideul>li ul.kefulist li a:hover{text-decoration:none;}
+</style>
 </head>
 <body>
   <!--header-->
@@ -88,7 +105,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <a href="javascript:void(0)" class="out">
             <h5 style="padding:25px"><font color='white'>退出</font><h5>
           </a>
-          <?php } ?>
+          <?php }else{ ?>
+			  <h5 style="padding:25px"><font color='white'><a href="index.php?r=login/login" style="color:white;">登陆</a><a href="index.php?r=register/register" style="color:white;">注册</a></font><h5>
+		  <?php } ?>
       </div>
       <script>
             
@@ -220,6 +239,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
   </div>
   <!--read-->
+  <!--在线客服-->
+	<div class="slides">
+	<ul class="slideul">
+    	<!--<li><a href=""><img src="images/slide-01.jpg" alt=""></a></li>-->
+        <li class="kefu">
+        	<img src="images/slide-02.jpg" alt="">
+        	<ul class="kefulist">
+			<?php foreach($qqlist as $k=>$v){?>
+				<li><a target="target" href="tencent://message/?uin=<?= $v['q_qq']?>&Site=qq&Menu=yes"><?= $v['q_name']?></a></li>
+			<?php }?>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+$(function(){
+	//Sldie
+	$(".slides .kefu").mouseenter(function(){
+		$(this).find(".kefulist").fadeIn();
+	});
+	$(".slides .kefu").mouseleave(function(){
+		$(this).find(".kefulist").fadeOut();
+	});
+});
+</script>
+  <!--在线客服结束-->
   <!--footer-->
   <div class="footer">
     <div class="container">

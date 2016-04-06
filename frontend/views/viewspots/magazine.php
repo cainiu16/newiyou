@@ -7,7 +7,6 @@
 use yii\widgets\LinkPager;
 ?>
 <script src="lib/modernizr/modernizr-custom.js"></script>
-<script src="lib/jquery/jquery.js"></script>
 <link href="css/mislider.css" rel="stylesheet">
 <link href="css/mislider-skin-cameo.css" rel="stylesheet">
 <script src="js/mislider.js"></script>
@@ -33,7 +32,6 @@ navButtonsOpacity: 1
 });
 });
 </script>
-<!-- Apply other styles -->
 <!--magazine-->
 <div class="magazine">
 <div id="wrapper">

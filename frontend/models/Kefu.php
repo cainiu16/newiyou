@@ -42,4 +42,12 @@ class Kefu extends \yii\db\ActiveRecord
             'q_qq' => 'Q Qq',
         ];
     }
+	/**
+	 *查询出搜有客服
+	 *
+	 */
+	 public function allkefu()
+	 {
+		 return $this->find()->asArray()->all();
+	 }
 }
